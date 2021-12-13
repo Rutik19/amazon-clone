@@ -1,24 +1,20 @@
-.checkout{
-    background-color: bisque;
-    display: flex;
-    height: max-content;
-    padding: 20px;
+.checkout {
+  display: flex;
+  background-color: bisque;
+  height: max-content;
+  padding: 20px;
 }
-
-.checkout--left{
-    background-color: white;
+.checkout--left {
+  background-color: white;
 }
-
-.checkout--adv{
-    width: 100%;
-    margin-bottom: 10px;
+.checkout--adv {
+  width: 100%;
+  margin-bottom: 10px;
 }
-
-.checkout--title{
-    padding: 10px;
-    border-bottom: 1px solid black;
+.checkout--title {
+  padding: 10px;
+  border-bottom: 1px solid black;
 }
-
-.checkout--right{
-    background-color: aqua;
+.checkout--right {
+  background-color: aqua;
 }

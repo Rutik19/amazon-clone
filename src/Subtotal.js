@@ -1,17 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useStateValue } from "./StateProvider";
 import "./Subtotal.css";
 
 function Subtotal() {
-    return (
-        <div className="subtotal">
-            <p>Subtotal (0 items):<strong>0</strong> </p>
-            <small className="subtotal--gift">
-                <input type="checkbox" /> This order contains a gift
-            </small>
+  const [{cart}, dispatch] = useStateValue();  
 
-            <button>Proceed to Buy</button>
-        </div>
-    )
+  return (
+    <div className="subtotal">
+                <p>Subtotal ({cart.length} items):<strong>0</strong> </p>
+                <small className="subtotal--gift">
+                    <input type="checkbox" /> This order contains a gift
+                </small>
+      <button>Proceed to Buy</button>
+    </div>
+  );
 }
 
-export default Subtotal
+export default Subtotal;
