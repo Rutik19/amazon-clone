@@ -1,5 +1,4 @@
-//App.js
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
@@ -11,48 +10,37 @@ import { useStateValue } from "./StateProvider";
 
 function App() {
   const [{}, dispatch] = useStateValue();
-
-  useEffect(() =>{
-    //will only run once when app component is loaded.
-    auth.onAuthStateChanged(
-      authUser => {
-        console.log('THE USER IS :', authUser);
-      if (authUser){
-        //user just logged in / user was logged in
-        dispatch(
-          {
-            type: 'SET_USER',
-            user: authUser
-          }
-        )
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log("THE USER IS: ", authUser);
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
       }
-      else{
-        //user logged out
-        dispatch(
-          {
-            type: 'SET_USER',
-            user: null
-          }
-        )
-      }
-    })
-  }, [])
-
+    });
+  }, []);
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Switch>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/checkout">
-                      <Header />
-                      <Checkout /> 
-              </Route>
-              <Route path="/">
-                      <Header />
-                      <Home />
-              </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/checkout">
+            <Header />
+            <Checkout />
+          </Route>
+          <Route path="/">
+            <Header />
+            <Home />
+          </Route>
         </Switch>
       </div>
     </Router>
